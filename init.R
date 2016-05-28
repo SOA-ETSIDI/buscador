@@ -2,8 +2,8 @@ library(DT)
 library(data.table)
 library(openssl)
 
-source('../aux/funciones.R')
-source('../aux/defs.R')
+source('../misc/funciones.R')
+source('../misc/defs.R')
 
 semestre <- 2
 
@@ -22,7 +22,7 @@ grupos <- c(grupos, masters)
 names(grupos) <- NULL
 
 ## Horarios con aulas
-horariosPath <- '../data/horarios/'
+horariosPath <- '../horarios/csv/'
 files <- dir(horariosPath, pattern = '.csv')
 horarios <- rbindlist(lapply(paste0(horariosPath, files),
                              fread,
