@@ -13,9 +13,9 @@ header <- fluidRow(
     column(4, align = 'center', img(src = logoUPM)),
     column(4, align = 'center',
            h2("Horarios y aulas"),
-           h4(paste0("Curso 2015-2016 (",
+           h4(paste0("Curso ", cursoActual, " (",
                      c('Septiembre - Enero',
-                       'Febrero - Junio')[semestre],
+                       'Febrero - Junio')[semestreActual],
                      ")")),
            h5("Subdirección de Ordenación Académica")),
     column(4, align = 'center', img(src = logoETSIDI))

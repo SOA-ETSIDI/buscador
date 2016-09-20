@@ -5,7 +5,8 @@ library(openssl)
 source('../misc/funciones.R')
 source('../misc/defs.R')
 
-semestre <- 2
+semestreActual <- 1
+cursoActual <- '2016-17'
 
 dtOutput <- DT::dataTableOutput
 renderDT <- DT::renderDataTable
@@ -23,7 +24,7 @@ names(grupos) <- NULL
 
 ## Horarios con aulas
 horariosPath <- '../horarios/csv/'
-files <- dir(horariosPath, pattern = '.csv')
+files <- dir(horariosPath, pattern = '.csv$')
 horarios <- rbindlist(lapply(paste0(horariosPath, files),
                              fread,
                              na.string = "", 
@@ -33,7 +34,7 @@ horarios <- rbindlist(lapply(paste0(horariosPath, files),
 horarios[is.na(Grupo), Grupo := Titulacion]
 ## No incluyo la hora de inicio: una actividad queda determinada por
 ## su nombre, tipo, grupo y dia (y aporta la información de aula)
-dth <- horarios[Semestre == semestre &
+dth <- horarios[Semestre == semestreActual &
                 Grupo %in% grupos,
                 .(
                     Asignatura,
@@ -67,7 +68,8 @@ dt0[, CodAsignatura := as.integer(CodAsignatura)]
 dt0[, Guia := paste0('<a href="',
                               GAurl(CodAsignatura,
                                     Titulacion,
-                                    semestre),
+                                    semestreActual,
+                                    cursoActual),
                               '" target=_blank>',
                      CodAsignatura, '</a>')]
 ## Nuevamente supongo que una actividad queda definida de forma unívoca por su dia, grupo, tipo y nombre
