@@ -5,7 +5,7 @@ library(openssl)
 source('../misc/funciones.R')
 source('../misc/defs.R')
 
-semestreActual <- 1
+semestreActual <- 2
 cursoActual <- '2016-17'
 
 dtOutput <- DT::dataTableOutput
