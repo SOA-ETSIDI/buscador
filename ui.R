@@ -15,7 +15,7 @@ header <- fluidRow(
            h2("Horarios y aulas"),
            h4(paste0("Curso ", cursoActual, " (",
                      c('Septiembre - Enero',
-                       'Febrero - Junio')[semestreActual],
+                       'Febrero - Julio')[semestreActual],
                      ")")),
            h5("Subdirección de Ordenación Académica")),
     column(4, align = 'center', img(src = logoETSIDI))
